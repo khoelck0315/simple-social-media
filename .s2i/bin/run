@@ -12,4 +12,8 @@ php artisan migrate --seed
 
 php artisan storage:link
 
+# Generate the application key.  It doesn't seem to like this one as an environment var, so just
+# put it in an .env file so Laravel will stop crying.
+cat <<< APP_KEY=`php /opt/app-root/src/artisan key:generate --show --no-interaction` > .env
+
 exec /usr/libexec/s2i/run
