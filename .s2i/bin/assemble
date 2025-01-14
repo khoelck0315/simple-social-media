@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # In addition to the composer install, npm needs to install dependencies too
+npm install
 npm run build
 
 /usr/libexec/s2i/assemble
