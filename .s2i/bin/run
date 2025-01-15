@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Fix the document root to public for Laravel
-sed -i -E 's/DocumentRoot "\/opt\/app-root\/src"/DocumentRoot "\/opt\/app-root\/src\/public"/' /opt/app-root/etc/conf.d
+sed -i -E 's/DocumentRoot "\/opt\/app-root\/src"/DocumentRoot "\/opt\/app-root\/src\/public"/' /opt/app-root/etc/conf.d/00-documentroot.conf
 sed -i -E 's/<Directory "\/var\/www">/<Directory "/opt/app-root">/' /etc/httpd/conf/httpd.conf
 sed -i -E 's/<Directory "\/opt\/app-root\/src">/<Directory "\/opt\/app-root\/src\/public">/' /etc/httpd/conf/httpd.conf
 httpd -k restart
@@ -14,6 +14,6 @@ php artisan storage:link
 
 # Generate the application key.  It doesn't seem to like this one as an environment var, so just
 # put it in an .env file so Laravel will stop crying.
-cat <<< APP_KEY=`php /opt/app-root/src/artisan key:generate --show --no-interaction` > .env
+cat <<< APP_KEY=`php artisan key:generate --show --no-interaction` > .env
 
 exec /usr/libexec/s2i/run
