@@ -9,5 +9,25 @@ php artisan storage:link
 # Generate the application key.  It doesn't seem to like this one as an environment var, so just
 # put it in an .env file so Laravel will stop crying.
 cat <<< APP_KEY=`php artisan key:generate --show --no-interaction` > .env
+cat << EOT >> .env
+DB_PORT=$DB_PORT
+CACHE_DRIVER=$CACHE_DRIVER
+BROADCAST_DRIVER=$BROADCAST_DRIVER
+LOG_CHANNEL=$LOG_CHANNEL
+DB_HOST=$DB_HOST
+APP_NAME=$APP_NAME
+LOG_LEVEL=$LOG_LEVEL
+QUEUE_CONNECTION=$QUEUE_CONNECTION
+APP_ENV=$APP_ENV
+MEMCACHED_HOST=$MEMCACHED_HOST
+APP_URL=$APP_URL
+SESSION_DRIVER=$SESSION_DRIVER
+SESSION_LIFETIME=$SESSION_LIFETIME
+APP_DEBUG=$APP_DEBUG
+DB_USERNAME=$DB_USERNAME
+DB_DATABASE=$DB_DATABASE
+FILESYSTEM_DRIVER=$FILESYSTEM_DRIVER
+DB_CONNECTION=$DB_CONNECTION
+EOT
 
 exec /usr/libexec/s2i/run
