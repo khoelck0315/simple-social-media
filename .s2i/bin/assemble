@@ -1,9 +1,6 @@
 #!/bin/bash
-stat package.json
-find / -name package.json
-pwd
-npm install
-npm run production
+npm --prefix=/tmp/src install
+npm --prefix=/tmp/src run production
 
 /usr/libexec/s2i/assemble
 rc=$?
