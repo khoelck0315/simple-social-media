@@ -1,5 +1,5 @@
 #!/bin/bash
-dnf install -y yarn
+sudo dnf install -y yarn
 yarn install
 yarn run production
 
