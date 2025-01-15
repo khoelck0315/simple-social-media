@@ -1,6 +1,8 @@
 #!/bin/bash
 npm --prefix=/tmp/src install
+npm --prefix=/tmp/src install babel-loader
 npm --prefix=/tmp/src run production
+
 
 /usr/libexec/s2i/assemble
 rc=$?
