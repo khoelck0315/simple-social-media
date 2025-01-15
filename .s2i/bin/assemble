@@ -1,7 +1,7 @@
 #!/bin/bash
-npm install
-npm install mix
-npm run production
+npm --prefix /opt/app-root/src install
+npm --prefix /opt/app-root/src install mix
+npm --prefix /opt/app-root/src run production
 
 /usr/libexec/s2i/assemble
 rc=$?
