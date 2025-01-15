@@ -1,5 +1,7 @@
 #!/bin/bash
-
+dnf install -y yarn
+yarn install
+yarn run production
 
 /usr/libexec/s2i/assemble
 rc=$?

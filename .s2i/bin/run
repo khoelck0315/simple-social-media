@@ -33,8 +33,4 @@ DB_DATABASE=$DB_DATABASE
 DB_USERNAME=$DB_USERNAME
 EOT
 
-npm install
-npm install mix
-npm run production
-
 exec /usr/libexec/s2i/run
