@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# In addition to the composer install, npm needs to install dependencies too
-npm install
-npm run build
+# Fix the document root to public for Laravel
+sed -i -E 's/DocumentRoot "\/opt\/app-root\/src"/DocumentRoot "\/opt\/app-root\/src\/public"/' /opt/app-root/etc/conf.d/00-documentroot.conf
+sed -i -E 's/<Directory "\/var\/www">/<Directory "\/opt\/app-root">/' /etc/httpd/conf/httpd.conf
+sed -i -E 's/<Directory "\/opt\/app-root\/src">/<Directory "\/opt\/app-root\/src\/public">/' /etc/httpd/conf/httpd.conf
 
 /usr/libexec/s2i/assemble
 rc=$?
