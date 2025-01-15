@@ -73,12 +73,8 @@ yarn prod
 ```bash
 #Install all dependencies
 npm install
-
-#Development
-npm dev
-
-#Production
-npm prod
+npm install mix
+npm run production
 ```
 
 - Create symbolic link 
