@@ -1,6 +1,7 @@
 #!/bin/bash
 npm install
-npm prod
+npm install mix
+npm run production
 
 /usr/libexec/s2i/assemble
 rc=$?
